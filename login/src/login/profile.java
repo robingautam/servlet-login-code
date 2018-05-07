@@ -22,8 +22,8 @@ public class profile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          HttpSession session = request.getSession();
          
-		   class A{
-		   public void setPost() throws IOException {
+		   
+		  
 				String text = request.getParameter("text");
                 String email = session.getAttribute("email").toString();
                 try {
@@ -36,8 +36,7 @@ public class profile extends HttpServlet {
                 	PrintWriter out = response.getWriter();
                 	out.println("something went wrong "+e.getMessage());
                 }
-			}
-		  }
+
 		
 	}
 	public static void main(String[] args) {
