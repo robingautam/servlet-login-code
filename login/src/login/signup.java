@@ -24,6 +24,10 @@ public class signup extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");  
+		public static String TABLE_NAME = "user";
+		public static String TABLE_COLUMN_NAME = "name";
+		public static String TABLE_COLUMN_EMAIL = "email";
+		public static String TABLE_COLUMN_PASSWORD = "password";
            PrintWriter pw = response.getWriter();  
            String connectionURL = "jdbc:sqlite:C:\\databases\\chatbook.db";
            Connection connection;  
@@ -35,7 +39,7 @@ public class signup extends HttpServlet {
              
             Class.forName("org.sqlite.JDBC");  
              connection = DriverManager.getConnection(connectionURL);  
-             PreparedStatement pst = connection.prepareStatement("insert into user(name, email, password) values(?, ?, ?)");
+             PreparedStatement pst = connection.prepareStatement("insert into "+ TABLE_NAME+"("+TABLE_COLUMN_NAME+", "+TABLE_COLUMN_EMAIL+", "+TABLE_COLUMN_PASSWORD+")"+"values(?, ?, ?)");
              pst.setString(1,name);
              pst.setString(2, email);
              pst.setString(3,Password);
